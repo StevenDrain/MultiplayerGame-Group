@@ -24,7 +24,17 @@ public class MovementP2 : MonoBehaviour
         isGrounded = characterController.isGrounded;
         
         float moveInput = Input.GetAxis("Player2Move");
-        Vector3 move = new Vector3(moveInput * speed, 0, 0);
+        
+        if (moveInput > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 90, 0); // Face right
+        }
+        else if (moveInput < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, -90, 0); // Face left
+        }
+        
+        Vector3 move = transform.forward * Mathf.Abs(moveInput) * speed;
 
         
         if (isGrounded && velocity.y < 0)

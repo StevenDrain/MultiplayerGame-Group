@@ -14,6 +14,9 @@ public class MovementP1 : MonoBehaviour
     private bool isGrounded;
     public float jumpForce = 5f; 
 
+
+
+
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -24,9 +27,22 @@ public class MovementP1 : MonoBehaviour
         isGrounded = characterController.isGrounded;
         
         float moveInput = Input.GetAxis("Player1Move");
-        Vector3 move = new Vector3(moveInput * speed, 0, 0);
-
         
+
+        //Sketchy Idea: check if movement is postivie or negative and rotate left or right accordingly then just walk forward
+        if (moveInput > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 90, 0); // Face right
+        }
+        else if (moveInput < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, -90, 0); // Face left
+        }
+        
+        Vector3 move = transform.forward * Mathf.Abs(moveInput) * speed;
+        //End of Sketchy Idea
+
+
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = 0; 
