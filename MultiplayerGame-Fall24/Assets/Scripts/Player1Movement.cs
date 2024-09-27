@@ -14,7 +14,9 @@ public class MovementP1 : MonoBehaviour
     private bool isGrounded;
     public float jumpForce = 5f; 
 
-
+    //abilities
+    public int levelNumber = 1;
+    public bool doubleJump;
 
 
     void Awake()
@@ -26,6 +28,11 @@ public class MovementP1 : MonoBehaviour
     {
         isGrounded = characterController.isGrounded;
         
+        if (isGrounded && velocity.y < 0)
+        {
+            doubleJump = true;
+        }
+
         float moveInput = Input.GetAxis("Player1Move");
         
 
@@ -51,6 +58,11 @@ public class MovementP1 : MonoBehaviour
         if (Input.GetButtonDown("Player1Jump") && isGrounded)
         {
             velocity.y += jumpForce; 
+        }
+        else if (Input.GetButtonDown("Player1Jump") && doubleJump && levelNumber == 1)
+        {
+            velocity.y += jumpForce;
+            doubleJump = false; 
         }
 
         velocity.y += gravity * Time.deltaTime;
