@@ -18,10 +18,14 @@ public class MovementP1 : MonoBehaviour
     public int levelNumber = 1;
     public bool doubleJump;
 
+    //wall break
+    public bool canBreak;
+
 
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        canBreak = true;
     }
 
     void Update()
@@ -68,4 +72,6 @@ public class MovementP1 : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         characterController.Move((move + velocity) * Time.deltaTime);
     }
+
+
 }
