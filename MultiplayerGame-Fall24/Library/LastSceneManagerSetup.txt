@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/PrimaryScene.unity
+- path: Assets/StevenDrain/LightMechanic.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
