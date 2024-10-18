@@ -11,7 +11,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Terrain
   - Water
   - UI
   - 
@@ -21,7 +21,7 @@ TagManager:
   - 
   - Player1Collision
   - Player2Collision
-  - 
+  - Shield
   - 
   - 
   - 

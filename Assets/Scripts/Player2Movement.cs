@@ -14,13 +14,27 @@ public class MovementP2 : MonoBehaviour
     public bool isGrounded;
     public float jumpForce = 5f;
 
+    //SHIELD
+    public float shieldDuration = 500f;
+    public GameObject shield;
+    private bool isActive;
+    private bool shieldActive;
+
+
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
     }
 
 
-    
+    void Start()
+    {
+
+        shield.SetActive(false);
+        isActive = shield.activeSelf;
+    }
+
+
 
 
     void Update()
@@ -31,7 +45,6 @@ public class MovementP2 : MonoBehaviour
         }
 
         float moveInput = Input.GetAxis("Player2Move");
-
 
         if (moveInput > 0)
         {
@@ -55,6 +68,32 @@ public class MovementP2 : MonoBehaviour
             velocity.y += jumpForce;
             isGrounded = false;
         }
+
+        if(shieldActive == true)
+        {
+            shieldDuration -= 1;
+        }
+
+        if (Input.GetButtonDown("Player2Ability") && shieldDuration > 0f)
+        {
+            isActive = !isActive;
+            shield.SetActive(isActive);
+            shieldActive = !shieldActive;
+        }
+
+        if (shieldDuration < 500 && shieldActive == false)
+        {
+            shieldDuration += 1;
+            
+        }
+
+        if (shieldDuration <= 0)
+        {
+            shield.SetActive(false);
+            shieldActive = false;
+        }
+
+
 
         velocity.y += gravity * Time.deltaTime;
         characterController.Move((move + velocity) * Time.deltaTime);
