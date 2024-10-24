@@ -361,6 +361,7 @@
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/Player1Movement.cs"
 "Assets/Scripts/Player2Movement.cs"
+"Assets/StevenDrain/LadderScript.cs"
 "Assets/StevenDrain/LightOn.cs"
 -langversion:9.0
 
