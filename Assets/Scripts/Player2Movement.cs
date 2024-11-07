@@ -11,65 +11,80 @@ public class MovementP2 : MonoBehaviour
     private CharacterController characterController;
     private Vector3 velocity;
 
-    public bool isGrounded;
+    private bool isGrounded;
     public float jumpForce = 5f;
 
-    //SHIELD
+    private bool canClimb = false;
+    public float climbSpeed = 3f;
+
     public float shieldDuration = 500f;
     public GameObject shield;
     private bool isActive;
     private bool shieldActive;
-
 
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
     }
 
-
     void Start()
     {
-
         shield.SetActive(false);
         isActive = shield.activeSelf;
     }
 
-
-
-
     void Update()
     {
-        if (isGrounded != true)
-        {
-            isGrounded = characterController.isGrounded;
-        }
+        isGrounded = characterController.isGrounded;
 
         float moveInput = Input.GetAxis("Player2Move");
 
         if (moveInput > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 90, 0); // Face right
+            transform.rotation = Quaternion.Euler(0, 90, 0);
         }
         else if (moveInput < 0)
         {
-            transform.rotation = Quaternion.Euler(0, -90, 0); // Face left
+            transform.rotation = Quaternion.Euler(0, -90, 0);
         }
 
         Vector3 move = transform.forward * Mathf.Abs(moveInput) * speed;
 
-
-        if (isGrounded && velocity.y < 0)
+        if (canClimb)
         {
-            velocity.y = 0;
+            float climbInput = Input.GetAxis("Vertical");
+            Vector3 climbMove = new Vector3(0, climbInput * climbSpeed, 0);
+            characterController.Move(climbMove * Time.deltaTime);
+
+            if (Input.GetButtonDown("Player2Jump"))
+            {
+                canClimb = false;
+                velocity.y = jumpForce;
+            }
+
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+            {
+                canClimb = false;
+                velocity.y = 0;
+            }
+        }
+        else
+        {
+            if (isGrounded && velocity.y < 0)
+            {
+                velocity.y = 0;
+            }
+
+            if (Input.GetButtonDown("Player2Jump") && isGrounded)
+            {
+                velocity.y += jumpForce;
+            }
+
+            velocity.y += gravity * Time.deltaTime;
+            characterController.Move((move + velocity) * Time.deltaTime);
         }
 
-        if (Input.GetButtonDown("Player2Jump") && isGrounded)
-        {
-            velocity.y += jumpForce;
-            isGrounded = false;
-        }
-
-        if(shieldActive == true)
+        if (shieldActive)
         {
             shieldDuration -= 1;
         }
@@ -81,10 +96,9 @@ public class MovementP2 : MonoBehaviour
             shieldActive = !shieldActive;
         }
 
-        if (shieldDuration < 500 && shieldActive == false)
+        if (shieldDuration < 500 && !shieldActive)
         {
             shieldDuration += 1;
-            
         }
 
         if (shieldDuration <= 0)
@@ -92,10 +106,23 @@ public class MovementP2 : MonoBehaviour
             shield.SetActive(false);
             shieldActive = false;
         }
+    }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            canClimb = true;
+            velocity = Vector3.zero;
+        }
+    }
 
-
-        velocity.y += gravity * Time.deltaTime;
-        characterController.Move((move + velocity) * Time.deltaTime);
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            canClimb = false;
+            velocity.y = 0;
+        }
     }
 }

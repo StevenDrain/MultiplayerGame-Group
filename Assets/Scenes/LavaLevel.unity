@@ -1040,7 +1040,7 @@ MonoBehaviour:
   gravity: -20
   isGrounded: 0
   jumpForce: 15
-  shieldDuration: 100
+  shieldDuration: 500
   shield: {fileID: 1259486637}
 --- !u!143 &1058314028
 CharacterController:
