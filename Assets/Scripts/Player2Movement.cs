@@ -22,6 +22,8 @@ public class MovementP2 : MonoBehaviour
     private bool isActive;
     private bool shieldActive;
 
+    public bool canBreak;
+
     void Awake()
     {
         characterController = GetComponent<CharacterController>();

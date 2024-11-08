@@ -10,9 +10,9 @@ public class BreakableWall : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.RightAlt))
         {
-           MovementP1 player = FindPlayerInRange();
+           MovementP2 player = FindPlayerInRange();
            if(player != null)
            {
 
@@ -46,14 +46,14 @@ public class BreakableWall : MonoBehaviour
     }
 
     // Check if a player is close enough to the object
-    private MovementP1 FindPlayerInRange()
+    private MovementP2 FindPlayerInRange()
     {
         // Use Physics.OverlapSphere to detect players within range
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRange);
         foreach (var hitCollider in hitColliders)
         {
             // Attempt to get the MovementP1 component from the hit collider
-            MovementP1 player = hitCollider.GetComponent<MovementP1>();
+            MovementP2 player = hitCollider.GetComponent<MovementP2>();
             if (player != null)
             {
                 Debug.Log("Player found within range: " + player.name);
