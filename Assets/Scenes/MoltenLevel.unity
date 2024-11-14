@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4505871, g: 0.50056416, b: 0.5750418, a: 1}
+  m_IndirectSpecularColor: {r: 0.45058775, g: 0.500565, b: 0.5750429, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1190,8 +1190,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 18
   gravity: -20
-  isGrounded: 0
   jumpForce: 15
+  climbSpeed: 3
+  shieldDuration: 500
+  shield: {fileID: 0}
+  canBreak: 0
 --- !u!143 &1058314028
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2521,6 +2524,7 @@ MonoBehaviour:
   jumpForce: 10
   levelNumber: 1
   doubleJump: 0
+  climbSpeed: 3
   canBreak: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
