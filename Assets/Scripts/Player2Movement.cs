@@ -22,6 +22,8 @@ public class MovementP2 : MonoBehaviour
     private bool isActive;
     private bool shieldActive;
 
+    public ParticleSystem shieldParticle;
+
     public bool canBreak;
 
     void Awake()
@@ -89,12 +91,14 @@ public class MovementP2 : MonoBehaviour
         if (shieldActive)
         {
             shieldDuration -= 1;
+            
         }
 
         if (Input.GetButtonDown("Player2Ability") && shieldDuration > 0f)
         {
             isActive = !isActive;
             shield.SetActive(isActive);
+            shieldParticle.Play();
             shieldActive = !shieldActive;
         }
 
@@ -107,6 +111,7 @@ public class MovementP2 : MonoBehaviour
         {
             shield.SetActive(false);
             shieldActive = false;
+            shieldParticle.Stop();
         }
     }
 
