@@ -8,6 +8,7 @@ TagManager:
   - PlayerTwo
   - Lava
   - Ladder
+  - Rock
   layers:
   - Default
   - TransparentFX
