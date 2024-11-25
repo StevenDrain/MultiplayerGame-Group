@@ -8,6 +8,7 @@ TagManager:
   - PlayerTwo
   - Lava
   - Ladder
+  - Death
   layers:
   - Default
   - TransparentFX

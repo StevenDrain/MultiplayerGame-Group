@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class MovementP2 : MonoBehaviour
@@ -24,10 +25,14 @@ public class MovementP2 : MonoBehaviour
 
     public bool canBreak;
 
+    private Scene scene;
+
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        scene = SceneManager.GetActiveScene();
     }
+
 
     void Start()
     {
@@ -117,6 +122,10 @@ public class MovementP2 : MonoBehaviour
             canClimb = true;
             velocity = Vector3.zero;
         }
+        if (other.CompareTag("Death"))
+        {
+            ResetLevel();
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -124,7 +133,13 @@ public class MovementP2 : MonoBehaviour
         if (other.CompareTag("Ladder"))
         {
             canClimb = false;
-            velocity.y = 0;
+            velocity.y = 0; // Reset vertical velocity when exiting the ladder
         }
+        
+    }
+
+    void ResetLevel()
+    {
+        SceneManager.LoadScene(scene.name);
     }
 }
