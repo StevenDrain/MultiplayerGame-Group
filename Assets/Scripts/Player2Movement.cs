@@ -18,12 +18,12 @@ public class MovementP2 : MonoBehaviour
     private bool canClimb = false;
     public float climbSpeed = 3f;
 
-    public float shieldDuration = 500f;
+    public float shieldDuration = 2000f;
     public GameObject shield;
     private bool isActive;
     private bool shieldActive;
 
-    public ParticleSystem shieldParticle;
+    
 
     public bool canBreak;
 
@@ -103,11 +103,10 @@ public class MovementP2 : MonoBehaviour
         {
             isActive = !isActive;
             shield.SetActive(isActive);
-            shieldParticle.Play();
             shieldActive = !shieldActive;
         }
 
-        if (shieldDuration < 500 && !shieldActive)
+        if (shieldDuration < 2000 && !shieldActive)
         {
             shieldDuration += 1;
         }
@@ -116,7 +115,7 @@ public class MovementP2 : MonoBehaviour
         {
             shield.SetActive(false);
             shieldActive = false;
-            shieldParticle.Stop();
+            
         }
     }
 

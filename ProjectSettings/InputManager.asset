@@ -233,8 +233,8 @@ InputManager:
     m_Name: Player2Jump
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: right ctrl
-    positiveButton: 
+    negativeButton: 
+    positiveButton: right ctrl
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000

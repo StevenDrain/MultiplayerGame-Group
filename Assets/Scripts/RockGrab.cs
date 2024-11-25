@@ -51,7 +51,7 @@ public class RockGrab : MonoBehaviour
                     Physics.IgnoreCollision(rockCollider, GetComponent<Collider>(), true);
                 }
 
-                // Determine the target position based on player orientation and rock’s initial position
+                // Determine the target position based on player orientation and rockï¿½s initial position
                 bool isFacingRight = transform.rotation.eulerAngles.y == 90;
                 Vector3 directionToRock = rock.transform.position - transform.position;
                 bool rockIsOnRight = Vector3.Dot(transform.right, directionToRock) > 0;
@@ -72,7 +72,8 @@ public class RockGrab : MonoBehaviour
             if (rockRb != null)
             {
                 rockRb.isKinematic = false;
-                rockRb.constraints = RigidbodyConstraints.FreezeRotation;
+                // Remove the line that unfreezes the positions
+                // rockRb.constraints = RigidbodyConstraints.FreezeRotation;
             }
             if (rockCollider != null)
             {
