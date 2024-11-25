@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class MovementP1 : MonoBehaviour
@@ -25,18 +26,29 @@ public class MovementP1 : MonoBehaviour
     //wall break
     public bool canBreak;
 
+    //reset level
+    public bool reset;
+    private Scene scene;
+
+   
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        scene = SceneManager.GetActiveScene();
     }
 
     void Update()
     {
+        
         isGrounded = characterController.isGrounded;
         
-        if (isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0 && levelNumber ==1)
         {
             doubleJump = true;
+        }
+        else if (isGrounded && velocity.y < 0 && levelNumber == 2)
+        {
+            doubleJump = false;
         }
 
         float moveInput = Input.GetAxis("Player1Move");
@@ -103,6 +115,10 @@ public class MovementP1 : MonoBehaviour
             canClimb = true;
             velocity = Vector3.zero; // Reset velocity when starting to climb
         }
+         if (other.CompareTag("Death"))
+        {
+            ResetLevel();
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -110,7 +126,13 @@ public class MovementP1 : MonoBehaviour
         if (other.CompareTag("Ladder"))
         {
             canClimb = false;
-            velocity.y = 0; // Reset vertical velocity when exiting the ladder
+            velocity.y = 0;
         }
+       
+    }
+
+    void ResetLevel()
+    {
+        SceneManager.LoadScene(scene.name);
     }
 }
