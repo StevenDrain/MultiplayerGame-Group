@@ -9,12 +9,11 @@ TagManager:
   - Lava
   - Ladder
   - Death
-
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Terrain
+  - Craig
   - Water
   - UI
   - 
@@ -22,9 +21,9 @@ TagManager:
   - 
   - 
   - 
-  - Player1Collision
-  - Player2Collision
-  - Shield
+  - 
+  - 
+  - 
   - 
   - 
   - 
