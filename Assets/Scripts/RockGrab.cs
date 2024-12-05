@@ -26,10 +26,6 @@ public class RockGrab : MonoBehaviour
         {
             DropRock();
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-    {
-        rockCollider.isTrigger = false;
-    }
     }
 
     void TryGrabRock()
@@ -45,7 +41,6 @@ public class RockGrab : MonoBehaviour
                 grabbedRock = rock;
                 rockRb = grabbedRock.GetComponent<Rigidbody>();
                 rockCollider = grabbedRock.GetComponent<Collider>();
-                rockCollider.isTrigger = true;
 
                 if (rockRb != null)
                 {
@@ -65,7 +60,6 @@ public class RockGrab : MonoBehaviour
                 // Attach rock to the chosen side
                 grabbedRock.transform.position = targetPosition.position;
                 grabbedRock.transform.SetParent(targetPosition);
-                
                 break;
             }
         }
@@ -84,14 +78,12 @@ public class RockGrab : MonoBehaviour
             if (rockCollider != null)
             {
                 Physics.IgnoreCollision(rockCollider, GetComponent<Collider>(), false);
-                rockCollider.isTrigger = false;
             }
 
             grabbedRock.transform.SetParent(null);
             grabbedRock = null;
             rockRb = null;
             rockCollider = null;
-            
         }
     }
 }
