@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MoltenLevel.unity
     guid: b749406eef7fdca4c818cbf1036d8379
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: aee8fdad294de1f4685f08d3ef5f3fe0
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: facb21618a72cd947a060035eb96865f, type: 2}
