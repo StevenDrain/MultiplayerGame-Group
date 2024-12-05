@@ -27,10 +27,9 @@ public class MovementP1 : MonoBehaviour
     public bool canBreak;
 
     //reset level
-    public bool reset;
+    public bool resetplayerPos;
     private Scene scene;
 
-   
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -39,10 +38,9 @@ public class MovementP1 : MonoBehaviour
 
     void Update()
     {
-        
         isGrounded = characterController.isGrounded;
         
-        if (isGrounded && velocity.y < 0 && levelNumber ==1)
+        if (isGrounded && velocity.y < 0 && levelNumber == 1)
         {
             doubleJump = true;
         }
@@ -115,10 +113,12 @@ public class MovementP1 : MonoBehaviour
             canClimb = true;
             velocity = Vector3.zero; // Reset velocity when starting to climb
         }
-         if (other.CompareTag("Death"))
-        {
-            ResetLevel();
-        }
+        if (other.gameObject.tag == "Death")
+    {
+       
+        resetplayerPos = true;
+        ResetLevel();
+    }
     }
 
     void OnTriggerExit(Collider other)
@@ -128,11 +128,17 @@ public class MovementP1 : MonoBehaviour
             canClimb = false;
             velocity.y = 0;
         }
-       
     }
+    
 
-    void ResetLevel()
+void ResetLevel()
+{
+    if (resetplayerPos)
     {
-        SceneManager.LoadScene(scene.name);
+        characterController.enabled = false; // Disable CharacterController
+        transform.position = new Vector3(22, 1, 0); // Reset the position of the GameObject this script is attached to
+        characterController.enabled = true; // Re-enable CharacterController
     }
+    resetplayerPos = false;
+}
 }

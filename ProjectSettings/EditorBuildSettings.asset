@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MineshaftLevel.unity
+    guid: 616805293e953714787b56a8fc6c0eba
+  - enabled: 1
+    path: Assets/Scenes/MoltenLevel.unity
+    guid: b749406eef7fdca4c818cbf1036d8379
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: facb21618a72cd947a060035eb96865f, type: 2}

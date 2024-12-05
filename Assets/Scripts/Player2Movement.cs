@@ -28,6 +28,7 @@ public class MovementP2 : MonoBehaviour
     public bool canBreak;
 
     private Scene scene;
+    public bool resetplayerPos;
 
     void Awake()
     {
@@ -126,10 +127,12 @@ public class MovementP2 : MonoBehaviour
             canClimb = true;
             velocity = Vector3.zero;
         }
-        if (other.CompareTag("Death"))
-        {
-            ResetLevel();
-        }
+        if (other.gameObject.tag == "Death")
+    {
+        
+        resetplayerPos = true;
+        ResetLevel();
+    }
     }
 
     void OnTriggerExit(Collider other)
@@ -137,13 +140,19 @@ public class MovementP2 : MonoBehaviour
         if (other.CompareTag("Ladder"))
         {
             canClimb = false;
-            velocity.y = 0; // Reset vertical velocity when exiting the ladder
+            velocity.y = 0;
         }
-        
     }
+    
 
-    void ResetLevel()
+void ResetLevel()
+{
+    if (resetplayerPos)
     {
-        SceneManager.LoadScene(scene.name);
+        characterController.enabled = false; // Disable CharacterController
+        transform.position = new Vector3(22, 1, 0); // Reset the position of the GameObject this script is attached to
+        characterController.enabled = true; // Re-enable CharacterController
     }
+    resetplayerPos = false;
+}
 }
