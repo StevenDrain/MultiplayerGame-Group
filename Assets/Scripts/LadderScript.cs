@@ -48,14 +48,14 @@ public class LadderScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W))
             {
-                Debug.Log("W");
+                
                 player1OBJ.transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * speed);
-                Debug.Log("Player1 Position: " + player1OBJ.transform.position);
+                
             }
             if (Input.GetKey(KeyCode.S))
             {
                 player1OBJ.transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * speed);
-                Debug.Log("Player1 Position: " + player1OBJ.transform.position);
+                
             }
         }
 
@@ -63,14 +63,14 @@ public class LadderScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                Debug.Log("UpArrow");
+                
                 player2OBJ.transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * speed);
-                Debug.Log("Player2 Position: " + player2OBJ.transform.position);
+                
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
                 player2OBJ.transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * speed);
-                Debug.Log("Player2 Position: " + player2OBJ.transform.position);
+                
             }
         }
     }

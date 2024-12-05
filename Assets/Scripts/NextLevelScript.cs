@@ -5,14 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class NextLevelScript : MonoBehaviour
 {
-    public void OnTriggerEnter(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+   private bool playerOneCollided = false;
+    private bool playerTwoCollided = false;
+
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "PlayerOne" && other.gameObject.tag == "PlayerTwo")
+        if (other.gameObject.tag == "PlayerOne")
+        {
+            playerOneCollided = true;
+        }
+        else if (other.gameObject.tag == "PlayerTwo")
+        {
+            playerTwoCollided = true;
+        }
+
+        if (playerOneCollided && playerTwoCollided)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "PlayerOne")
+        {
+            playerOneCollided = false;
+        }
+        else if (other.gameObject.tag == "PlayerTwo")
+        {
+            playerTwoCollided = false;
         }
     }
 }
