@@ -23,7 +23,7 @@ public class MovementP2 : MonoBehaviour
     private bool isActive;
     private bool shieldActive;
 
-    
+
 
     public bool canBreak;
 
@@ -98,7 +98,7 @@ public class MovementP2 : MonoBehaviour
         if (shieldActive)
         {
             shieldDuration -= 1;
-            
+
         }
 
         if (Input.GetButtonDown("Player2Ability") && shieldDuration > 0f)
@@ -117,7 +117,7 @@ public class MovementP2 : MonoBehaviour
         {
             shield.SetActive(false);
             shieldActive = false;
-            
+
         }
     }
 
@@ -130,11 +130,11 @@ public class MovementP2 : MonoBehaviour
             velocity = Vector3.zero;
         }
         if (other.gameObject.tag == "Death")
-    {
-        
-        resetplayerPos = true;
-        ResetLevel();
-    }
+        {
+
+            resetplayerPos = true;
+            ResetLevel();
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -145,16 +145,16 @@ public class MovementP2 : MonoBehaviour
             velocity.y = 0;
         }
     }
-    
 
-void ResetLevel()
-{
-    if (resetplayerPos)
+
+    void ResetLevel()
     {
-        characterController.enabled = false; // Disable CharacterController
-        transform.position = respawnPoint.transform.position; // Move player to respawn point
-        characterController.enabled = true; // Re-enable CharacterController
+        if (resetplayerPos)
+        {
+            characterController.enabled = false; // Disable CharacterController
+            transform.position = respawnPoint.transform.position; // Move player to respawn point
+            characterController.enabled = true; // Re-enable CharacterController
+        }
+        resetplayerPos = false;
     }
-    resetplayerPos = false;
-}
 }

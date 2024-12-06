@@ -6,10 +6,10 @@ public class LightOn : MonoBehaviour
 {
     [SerializeField] private Light topLight1;
     [SerializeField] private Light topLight2;
-     [SerializeField] private Light topLight3;
-      [SerializeField] private Light topLight4;
-       [SerializeField] private Light topLight5;
-   
+    [SerializeField] private Light topLight3;
+    [SerializeField] private Light topLight4;
+    [SerializeField] private Light topLight5;
+
     [SerializeField] private Light areaLight;
 
     // Start is called before the first frame update
@@ -20,15 +20,15 @@ public class LightOn : MonoBehaviour
         topLight3.enabled = false;
         topLight4.enabled = false;
         topLight5.enabled = false;
-        areaLight.enabled = true; 
+        areaLight.enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            topLight1.enabled = true; 
+            topLight1.enabled = true;
             topLight2.enabled = true;
             topLight3.enabled = true;
             topLight4.enabled = true;

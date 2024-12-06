@@ -753,7 +753,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: 3c814442223a4bb4284ad6c2b6e0e3ce, type: 3}
+  - {fileID: 2100000, guid: 5daf5c40f3b6c3b459ab65b9ed29e72a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2766,7 +2766,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: 986ee40142b73d446b9cff13b19fdfa9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -6478536213147159724, guid: 3c814442223a4bb4284ad6c2b6e0e3ce, type: 3}
+      objectReference: {fileID: 2100000, guid: 4099ec1079e94864fab383312c7bff56, type: 2}
     - target: {fileID: 919132149155446097, guid: 986ee40142b73d446b9cff13b19fdfa9, type: 3}
       propertyPath: m_Name
       value: RockBlock1
@@ -4059,7 +4059,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: 2612e5d781884414e8683733d8023245, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -6478536213147159724, guid: 3c814442223a4bb4284ad6c2b6e0e3ce, type: 3}
+      objectReference: {fileID: 2100000, guid: 4099ec1079e94864fab383312c7bff56, type: 2}
     - target: {fileID: 919132149155446097, guid: 2612e5d781884414e8683733d8023245, type: 3}
       propertyPath: m_Name
       value: RockPlatform7Lengthened

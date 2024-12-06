@@ -12,7 +12,7 @@ public class LadderScript : MonoBehaviour
     bool canClimbPlayer2 = false;
     float speed = 5;
 
-    
+
 
     void OnTriggerEnter(Collider coll)
     {
@@ -48,14 +48,14 @@ public class LadderScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W))
             {
-                
+
                 player1OBJ.transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * speed);
-                
+
             }
             if (Input.GetKey(KeyCode.S))
             {
                 player1OBJ.transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * speed);
-                
+
             }
         }
 
@@ -63,14 +63,14 @@ public class LadderScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                
+
                 player2OBJ.transform.Translate(new Vector3(0, 1, 0) * Time.deltaTime * speed);
-                
+
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
                 player2OBJ.transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * speed);
-                
+
             }
         }
     }
