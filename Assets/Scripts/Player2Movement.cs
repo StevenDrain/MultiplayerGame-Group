@@ -119,6 +119,7 @@ public class MovementP2 : MonoBehaviour
         }
     }
 
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ladder"))
@@ -126,8 +127,15 @@ public class MovementP2 : MonoBehaviour
             canClimb = true;
             velocity = Vector3.zero;
         }
+<<<<<<< Updated upstream
         if (other.CompareTag("Death"))
         {
+=======
+        if (other.gameObject.tag == "Death")
+        {
+            
+            resetplayerPos = true;
+>>>>>>> Stashed changes
             ResetLevel();
         }
     }

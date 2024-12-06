@@ -108,6 +108,15 @@ public class MovementP1 : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Lava")
+        {
+            resetplayerPos = true;
+            ResetLevel();
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ladder"))
@@ -115,10 +124,20 @@ public class MovementP1 : MonoBehaviour
             canClimb = true;
             velocity = Vector3.zero; // Reset velocity when starting to climb
         }
+<<<<<<< Updated upstream
          if (other.CompareTag("Death"))
         {
             ResetLevel();
         }
+=======
+        if (other.gameObject.tag == "Death")
+        {
+        
+            resetplayerPos = true;
+            ResetLevel();
+        }
+     
+>>>>>>> Stashed changes
     }
 
     void OnTriggerExit(Collider other)
@@ -134,5 +153,9 @@ public class MovementP1 : MonoBehaviour
     void ResetLevel()
     {
         SceneManager.LoadScene(scene.name);
+<<<<<<< Updated upstream
+=======
+      
+>>>>>>> Stashed changes
     }
 }
