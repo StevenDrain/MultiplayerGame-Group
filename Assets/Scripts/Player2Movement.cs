@@ -29,6 +29,7 @@ public class MovementP2 : MonoBehaviour
 
     private Scene scene;
     public bool resetplayerPos;
+    public GameObject respawnPoint;
 
     void Awake()
     {
@@ -151,7 +152,7 @@ void ResetLevel()
     if (resetplayerPos)
     {
         characterController.enabled = false; // Disable CharacterController
-        transform.position = new Vector3(22, 1, 0); // Reset the position of the GameObject this script is attached to
+        transform.position = respawnPoint.transform.position; // Move player to respawn point
         characterController.enabled = true; // Re-enable CharacterController
     }
     resetplayerPos = false;

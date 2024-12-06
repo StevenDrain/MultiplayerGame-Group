@@ -29,6 +29,7 @@ public class MovementP1 : MonoBehaviour
     //reset level
     public bool resetplayerPos;
     private Scene scene;
+    public GameObject respawnPoint;
 
     void Awake()
     {
@@ -140,6 +141,11 @@ public class MovementP1 : MonoBehaviour
 
     void ResetLevel()
     {
-        SceneManager.LoadScene(scene.name);
+       if (respawnPoint == true)
+            {
+                characterController.enabled = false; 
+                transform.position = respawnPoint.transform.position; 
+                characterController.enabled = true; 
+            }
     }
 }
