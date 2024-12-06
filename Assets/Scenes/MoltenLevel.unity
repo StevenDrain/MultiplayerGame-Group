@@ -378,11 +378,7 @@ GameObject:
   - component: {fileID: 326429019}
   m_Layer: 0
   m_Name: Plane
-<<<<<<< Updated upstream
   m_TagString: Untagged
-=======
-  m_TagString: Lava
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -474,8 +470,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!108 &326429023
 Light:
   m_ObjectHideFlags: 0
@@ -559,7 +553,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9.999999, y: 2.220446e-16, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &337015830
 GameObject:
   m_ObjectHideFlags: 0
