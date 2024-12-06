@@ -10,7 +10,7 @@ public class ButtonManager : MonoBehaviour
 
     public Button EndGame;
 
-    
+    public Button Credits;
     
     void Start()
     {
@@ -21,7 +21,7 @@ public class ButtonManager : MonoBehaviour
 
         EndGame.onClick.AddListener(OnButton2Click);
 
-       
+        Credits.onClick.AddListener(OnButton3Click);
     }
 
     void OnButton1Click()
@@ -35,5 +35,8 @@ public class ButtonManager : MonoBehaviour
         Application.Quit();
     }
 
-    
+    void OnButton3Click()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 }
