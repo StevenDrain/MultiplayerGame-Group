@@ -114,20 +114,11 @@ public class MovementP1 : MonoBehaviour
             velocity = Vector3.zero; // Reset velocity when starting to climb
         }
         if (other.gameObject.tag == "Death")
-<<<<<<< Updated upstream
     {
        
         resetplayerPos = true;
         ResetLevel();
     }
-=======
-        {
-        
-            resetplayerPos = true;
-            ResetLevel();
-        }
-     
->>>>>>> Stashed changes
     }
 
     void OnTriggerExit(Collider other)
