@@ -28,12 +28,14 @@ public class MovementP1 : MonoBehaviour
 
     //reset level
     public bool resetplayerPos;
+    public GameObject respawnPoint;
     private Scene scene;
 
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
         scene = SceneManager.GetActiveScene();
+        
     }
 
     void Update()
@@ -129,15 +131,28 @@ public class MovementP1 : MonoBehaviour
             velocity.y = 0;
         }
     }
-    
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Lava")
+        {
+            resetplayerPos = true;
+            ResetLevel();
+        }
+        if (collision.collider.tag == "PlayerTwo") 
+        {
+
+            Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider, true); 
+
+        }
+    }
 
 void ResetLevel()
 {
-    if (resetplayerPos)
+    if (resetplayerPos == true)
     {
-        characterController.enabled = false; // Disable CharacterController
-        transform.position = new Vector3(22, 1, 0); // Reset the position of the GameObject this script is attached to
-        characterController.enabled = true; // Re-enable CharacterController
+        characterController.enabled = false; 
+        transform.position = respawnPoint.transform.position; 
+        characterController.enabled = true; 
     }
     resetplayerPos = false;
 }
