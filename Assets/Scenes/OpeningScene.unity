@@ -560,8 +560,6 @@ RectTransform:
   m_AnchoredPosition: {x: 17, y: -138}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
-=======
 --- !u!114 &803009211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +598,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803009209}
   m_CullTransparentMesh: 1
->>>>>>> Stashed changes
 --- !u!1 &1125318132
 GameObject:
   m_ObjectHideFlags: 0
