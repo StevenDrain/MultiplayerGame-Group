@@ -1071,6 +1071,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   part: {fileID: 0}
+  respawnPoint: {fileID: 1879811688}
+  Player1characterController: {fileID: 2101834068}
+  Player2characterController: {fileID: 1058314028}
 --- !u!199 &524413092
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -7441,6 +7444,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   part: {fileID: 0}
+  respawnPoint: {fileID: 1879811688}
+  Player1characterController: {fileID: 2101834068}
+  Player2characterController: {fileID: 1058314028}
 --- !u!199 &1457088907
 ParticleSystemRenderer:
   serializedVersion: 6
