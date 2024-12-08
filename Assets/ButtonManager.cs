@@ -27,7 +27,7 @@ public class ButtonManager : MonoBehaviour
     void OnButton1Click()
     {
        
-        SceneManager.LoadScene("MineshaftLevel");
+        SceneManager.LoadScene("MoltenLevel");
     }
 
     void OnButton2Click()

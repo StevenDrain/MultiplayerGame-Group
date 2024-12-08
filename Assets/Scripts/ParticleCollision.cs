@@ -16,12 +16,12 @@ public class ParticleCollision : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        if (other.tag == "PlayerOne")
+        if (other.CompareTag("PlayerOne"))
         {
             Debug.Log("Death1");
             ResetLevelPlayer1();
         }
-        else if (other.tag == "PlayerTwo")
+        else if (other.CompareTag("PlayerTwo"))
         {
             Debug.Log("Death2");
             ResetLevelPlayer2();
